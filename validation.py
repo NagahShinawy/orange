@@ -3,7 +3,8 @@ input validation for example IP validation
 class BaseValidator:
 """
 from abc import ABC
-from constants import INVALID_COMMAND, INVALID_CHOOSE
+
+from constants import INVALID_CHOOSE, INVALID_COMMAND
 from logs import logger
 
 
@@ -41,5 +42,3 @@ class SubnetVlanValidator(BaseValidator):
             logger.error(f"invalid choose '%s'", self.value)
             self.value = input(INVALID_CHOOSE.format(command=self.value))
         return self.value
-
-

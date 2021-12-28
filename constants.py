@@ -23,6 +23,5 @@ INVALID_CHOOSE = "Invalid choose '{command}'. " + SUBNET_OR_VLAN
 
 # ###################### ######################## ######################
 
-CLOSE = 'q'
+QUIT = "q"
 END = "End of program."
-

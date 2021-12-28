@@ -2,8 +2,7 @@
 entry point of the app
 """
 from cli import CLI
-from constants import CLOSE, END
-
+from constants import END, QUIT
 
 # todo : 1- tests (unittest)
 # todo : 2- pylint
@@ -19,8 +18,14 @@ def main():
     :return: None
     """
     cli = CLI()
-    while cli != CLOSE:
-        pass
+    while cli != QUIT:
+
+        if cli.subnet_or_vlan == cli.SUBNET:
+            # todo : implement logic for subnet
+            pass
+        else:
+            # todo : implement logic for vlan
+            pass
 
     print(END)
 
