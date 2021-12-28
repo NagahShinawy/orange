@@ -19,7 +19,7 @@ INVALID_COMMAND = "Invalid command '{command}'\n" + AVAILABLE_COMMANDS
 # ######################## subnet vlan ######################## ########################
 
 SUBNET_OR_VLAN = "type 'sub' to subnet or 'vlan' to VLAN: "
-INVALID_CHOOSE = "Invalid choose '{command}'. " + SUBNET_OR_VLAN
+INVALID_CHOOSE = "Invalid choice '{command}'. " + SUBNET_OR_VLAN
 
 # ###################### ######################## ######################
 
