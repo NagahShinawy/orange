@@ -2,6 +2,7 @@
 command line interface
 """
 from constants import USER_ACTIONS, INVALID_COMMAND, AVAILABLE_COMMANDS
+from logs import logger
 
 
 class CLI:
@@ -29,6 +30,7 @@ class CLI:
         :return: validated command value from (a, l, d, u, r, s )
         """
         while value not in self.COMMANDS:
+            logger.error(f"invalid command '%s'", value)
             value = input(INVALID_COMMAND.format(command=value))
 
         return super().__setattr__(prop, value)
