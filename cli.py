@@ -1,8 +1,8 @@
 """
 command line interface
 """
-from constants import USER_ACTIONS, INVALID_COMMAND, AVAILABLE_COMMANDS
-from logs import logger
+from constants import AVAILABLE_COMMANDS, SUBNET_OR_VLAN
+from validation import MenuValidator, SubnetVlanValidator
 
 
 class CLI:
@@ -10,10 +10,16 @@ class CLI:
     handle user interacting with terminal
     """
 
-    COMMANDS = USER_ACTIONS  # valid user actions
+    USER_ACTIONS = ("l", "a", "u", "d", "s", "r")
+
+    SUBNET = "subnet"
+    VLAN = "vlan"
+
+    SUBNET_VLAN = (SUBNET, VLAN)
 
     def __init__(self):
-        self.command = input(AVAILABLE_COMMANDS).lower()
+        self.subnet_or_vlan = input(SUBNET_OR_VLAN)
+        self.command = input(AVAILABLE_COMMANDS)
 
     def __repr__(self):
         """
@@ -27,11 +33,16 @@ class CLI:
         set and check command value
         :param prop: property name. ex: command
         :param value: command value. ex: a for add, l for list ....
-        :return: validated command value from (a, l, d, u, r, s )
+        :return: validated command value ex: (a, l, d, u, r, s ... )
         """
-        while value not in self.COMMANDS:
-            logger.error(f"invalid command '%s'", value)
-            value = input(INVALID_COMMAND.format(command=value))
+
+        value = value.lower()
+
+        if prop == "subnet_or_vlan":
+            value = SubnetVlanValidator(value).validate()
+
+        if prop == "command":
+            value = MenuValidator(value).validate()
 
         return super().__setattr__(prop, value)
 
