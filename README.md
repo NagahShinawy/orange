@@ -12,5 +12,5 @@
 ### 2- How to run
 
 ##### 2-1 windows
-#####    2-1-1 cd orange
-#####    2-1-2 python main.py
+##### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2-1-1 cd orange
+##### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2-1-2 python main.py
